@@ -4,26 +4,26 @@ services:
   web:
     image: vulnerables/web-dvwa
     ports:
-      - "80:80" # Port lokal dihubungkan ke port 80 dalam container
+      - "80:80" 
     depends_on:
       - db
     environment:
       - DB_HOST=db
-      - DB_USER=app # Username MariaDB sesuai nama user
-      - DB_PASSWORD=passwd # Password untuk user 'suguru'
+      - DB_USER=app 
+      - DB_PASSWORD=passwd
       - DB_NAME=dvwa
     restart: always
 
   db:
-    image: mariadb:latest # Menggunakan MariaDB versi 10.5
+    image: mariadb:latest 
     environment:
-      MYSQL_ROOT_PASSWORD: login0000 # Password untuk user root MariaDB
-      MYSQL_DATABASE: dvwa # Nama database yang akan dibuat
-      MYSQL_USER: suguru # Username MariaDB sesuai nama user
-      MYSQL_PASSWORD: login # Password untuk user 'suguru'
+      MYSQL_ROOT_PASSWORD: login0000
+      MYSQL_DATABASE: dvwa 
+      MYSQL_USER: suguru 
+      MYSQL_PASSWORD: login
     volumes:
-      - db_data:/var/lib/mysql # Volume untuk menyimpan data MariaDB
+      - db_data:/var/lib/mysql
     restart: always
         
 volumes:
-  db_data: # Volume untuk data MariaD
+  db_data: 
